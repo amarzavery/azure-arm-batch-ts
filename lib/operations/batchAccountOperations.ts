@@ -11,7 +11,7 @@
 import * as msRest from "ms-rest-ts";
 import * as Models from "../models";
 import * as Mappers from "../models/mappers";
-import { BatchManagementClient } from '../batchManagementClient';
+import { BatchManagementClient } from "../batchManagementClient";
 
 const WebResource = msRest.WebResource;
 
@@ -42,65 +42,18 @@ export class BatchAccountOperations {
    * service in the region in which the account is created. For example:
    * http://accountname.region.batch.azure.com/.
    *
-   * @param {object} parameters Additional parameters for account creation.
+   * @param {BatchAccountCreateParameters} parameters Additional parameters for
+   * account creation.
    *
-   * @param {string} parameters.location The region in which to create the
-   * account.
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
-   * @param {object} [parameters.tags] The user-specified tags associated with
-   * the account.
+   * @returns {Promise} A promise is returned
    *
-   * @param {object} [parameters.autoStorage] The properties related to the
-   * auto-storage account.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
-   * @param {string} parameters.autoStorage.storageAccountId The resource ID of
-   * the storage account to be used for auto-storage account.
-   *
-   * @param {string} [parameters.poolAllocationMode] The allocation mode to use
-   * for creating pools in the Batch account. The pool allocation mode also
-   * affects how clients may authenticate to the Batch Service API. If the mode
-   * is BatchService, clients may authenticate using access keys or Azure Active
-   * Directory. If the mode is UserSubscription, clients must use Azure Active
-   * Directory. The default is BatchService. Possible values include:
-   * 'BatchService', 'UserSubscription'
-   *
-   * @param {object} [parameters.keyVaultReference] A reference to the Azure key
-   * vault associated with the Batch account.
-   *
-   * @param {string} parameters.keyVaultReference.id The resource ID of the Azure
-   * key vault associated with the Batch account.
-   *
-   * @param {string} parameters.keyVaultReference.url The URL of the Azure key
-   * vault associated with the Batch account.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
-   *
-   * @param {function} [optionalCallback] - The optional callback.
-   *
-   * @returns {function|Promise} If a callback was passed as the last parameter
-   * then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned
-   *
-   *                      @resolve {BatchAccount} - The deserialized result object.
-   *
-   *                      @reject {Error} - The error object.
-   *
-   * {function} optionalCallback(err, result, request, response)
-   *
-   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {object} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccount} for more information.
-   *
-   *                      {object} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   * @reject {Error|ServiceError} - The error object.
    */
-  async createWithHttpOperationResponse(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async createWithHttpOperationResponse(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Send request
     let initialResult: msRest.HttpOperationResponse;
@@ -142,29 +95,18 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} parameters Additional parameters for account update.
+   * @param {BatchAccountUpdateParameters} parameters Additional parameters for
+   * account update.
    *
-   * @param {object} [parameters.tags] The user-specified tags associated with
-   * the account.
-   *
-   * @param {object} [parameters.autoStorage] The properties related to the
-   * auto-storage account.
-   *
-   * @param {string} parameters.autoStorage.storageAccountId The resource ID of
-   * the storage account to be used for auto-storage account.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<BatchAccount>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async updateWithHttpOperationResponse(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async updateWithHttpOperationResponse(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountUpdateParameters, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -318,33 +260,15 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @returns {Promise} A promise is returned
    *
-   * @param {function} [optionalCallback] - The optional callback.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
-   * @returns {function|Promise} If a callback was passed as the last parameter
-   * then it returns the callback else returns a Promise.
-   *
-   * {Promise} A promise is returned
-   *
-   *                      @resolve {null} - The deserialized result object.
-   *
-   *                      @reject {Error} - The error object.
-   *
-   * {function} optionalCallback(err, result, request, response)
-   *
-   *                      {Error}  err        - The Error object if an error occurred, null otherwise.
-   *
-   *                      {null} [result]   - The deserialized result object if an error did not occur.
-   *
-   *                      {object} [request]  - The HTTP Request object if an error did not occur.
-   *
-   *                      {stream} [response] - The HTTP Response stream if an error did not occur.
+   * @reject {Error|ServiceError} - The error object.
    */
-  async deleteMethodWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async deleteMethodWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Send request
     let initialResult: msRest.HttpOperationResponse;
@@ -372,18 +296,15 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<BatchAccount>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async getWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async getWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -514,18 +435,15 @@ export class BatchAccountOperations {
   /**
    * Gets information about the Batch accounts associated with the subscription.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<BatchAccountListResult>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async listWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async listWithHttpOperationResponse(options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -632,18 +550,15 @@ export class BatchAccountOperations {
    * @param {string} resourceGroupName The name of the resource group that
    * contains the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<BatchAccountListResult>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async listByResourceGroupWithHttpOperationResponse(resourceGroupName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async listByResourceGroupWithHttpOperationResponse(resourceGroupName: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -762,18 +677,15 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async synchronizeAutoStorageKeysWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async synchronizeAutoStorageKeysWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -897,18 +809,15 @@ export class BatchAccountOperations {
    * @param {string} keyName The type of account key to regenerate. Possible
    * values include: 'Primary', 'Secondary'
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<BatchAccountKeys>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async regenerateKeyWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async regenerateKeyWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyName: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -1077,18 +986,15 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<BatchAccountKeys>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async getKeysWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async getKeysWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -1231,49 +1137,18 @@ export class BatchAccountOperations {
    * service in the region in which the account is created. For example:
    * http://accountname.region.batch.azure.com/.
    *
-   * @param {object} parameters Additional parameters for account creation.
+   * @param {BatchAccountCreateParameters} parameters Additional parameters for
+   * account creation.
    *
-   * @param {string} parameters.location The region in which to create the
-   * account.
-   *
-   * @param {object} [parameters.tags] The user-specified tags associated with
-   * the account.
-   *
-   * @param {object} [parameters.autoStorage] The properties related to the
-   * auto-storage account.
-   *
-   * @param {string} parameters.autoStorage.storageAccountId The resource ID of
-   * the storage account to be used for auto-storage account.
-   *
-   * @param {string} [parameters.poolAllocationMode] The allocation mode to use
-   * for creating pools in the Batch account. The pool allocation mode also
-   * affects how clients may authenticate to the Batch Service API. If the mode
-   * is BatchService, clients may authenticate using access keys or Azure Active
-   * Directory. If the mode is UserSubscription, clients must use Azure Active
-   * Directory. The default is BatchService. Possible values include:
-   * 'BatchService', 'UserSubscription'
-   *
-   * @param {object} [parameters.keyVaultReference] A reference to the Azure key
-   * vault associated with the Batch account.
-   *
-   * @param {string} parameters.keyVaultReference.id The resource ID of the Azure
-   * key vault associated with the Batch account.
-   *
-   * @param {string} parameters.keyVaultReference.url The URL of the Azure key
-   * vault associated with the Batch account.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<BatchAccount>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async beginCreateWithHttpOperationResponse(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async beginCreateWithHttpOperationResponse(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -1426,18 +1301,15 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async beginDeleteMethodWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async beginDeleteMethodWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -1556,18 +1428,15 @@ export class BatchAccountOperations {
    * @param {string} nextPageLink The NextLink from the previous successful call
    * to List operation.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<BatchAccountListResult>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async listNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async listNextWithHttpOperationResponse(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -1665,18 +1534,15 @@ export class BatchAccountOperations {
    * @param {string} nextPageLink The NextLink from the previous successful call
    * to List operation.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<BatchAccountListResult>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async listByResourceGroupNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async listByResourceGroupNextWithHttpOperationResponse(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -1782,41 +1648,10 @@ export class BatchAccountOperations {
    * service in the region in which the account is created. For example:
    * http://accountname.region.batch.azure.com/.
    *
-   * @param {object} parameters Additional parameters for account creation.
+   * @param {BatchAccountCreateParameters} parameters Additional parameters for
+   * account creation.
    *
-   * @param {string} parameters.location The region in which to create the
-   * account.
-   *
-   * @param {object} [parameters.tags] The user-specified tags associated with
-   * the account.
-   *
-   * @param {object} [parameters.autoStorage] The properties related to the
-   * auto-storage account.
-   *
-   * @param {string} parameters.autoStorage.storageAccountId The resource ID of
-   * the storage account to be used for auto-storage account.
-   *
-   * @param {string} [parameters.poolAllocationMode] The allocation mode to use
-   * for creating pools in the Batch account. The pool allocation mode also
-   * affects how clients may authenticate to the Batch Service API. If the mode
-   * is BatchService, clients may authenticate using access keys or Azure Active
-   * Directory. If the mode is UserSubscription, clients must use Azure Active
-   * Directory. The default is BatchService. Possible values include:
-   * 'BatchService', 'UserSubscription'
-   *
-   * @param {object} [parameters.keyVaultReference] A reference to the Azure key
-   * vault associated with the Batch account.
-   *
-   * @param {string} parameters.keyVaultReference.id The resource ID of the Azure
-   * key vault associated with the Batch account.
-   *
-   * @param {string} parameters.keyVaultReference.url The URL of the Azure key
-   * vault associated with the Batch account.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -1824,18 +1659,18 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchAccount} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccount} for more information.
+   *                      {Models.BatchAccount} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchAccount} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   create(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters): Promise<Models.BatchAccount>;
-  create(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchAccount>;
+  create(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options: msRest.RequestOptionsBase): Promise<Models.BatchAccount>;
   create(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
-  create(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
-  create(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchAccount>): any {
+  create(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
+  create(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccount>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -1866,21 +1701,10 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} parameters Additional parameters for account update.
+   * @param {BatchAccountUpdateParameters} parameters Additional parameters for
+   * account update.
    *
-   * @param {object} [parameters.tags] The user-specified tags associated with
-   * the account.
-   *
-   * @param {object} [parameters.autoStorage] The properties related to the
-   * auto-storage account.
-   *
-   * @param {string} parameters.autoStorage.storageAccountId The resource ID of
-   * the storage account to be used for auto-storage account.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -1888,18 +1712,18 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchAccount} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccount} for more information.
+   *                      {Models.BatchAccount} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchAccount} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   update(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountUpdateParameters): Promise<Models.BatchAccount>;
-  update(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchAccount>;
+  update(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountUpdateParameters, options: msRest.RequestOptionsBase): Promise<Models.BatchAccount>;
   update(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountUpdateParameters, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
-  update(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
-  update(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchAccount>): any {
+  update(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountUpdateParameters, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
+  update(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountUpdateParameters, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccount>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -1930,10 +1754,7 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -1941,17 +1762,17 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {null} [result]   - The deserialized result object if an error did not occur.
+   *                      {void} [result]   - The deserialized result object if an error did not occur.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   deleteMethod(resourceGroupName: string, accountName: string): Promise<void>;
-  deleteMethod(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+  deleteMethod(resourceGroupName: string, accountName: string, options: msRest.RequestOptionsBase): Promise<void>;
   deleteMethod(resourceGroupName: string, accountName: string, callback: msRest.ServiceCallback<void>): void;
-  deleteMethod(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<void>): void;
-  deleteMethod(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<void>): any {
+  deleteMethod(resourceGroupName: string, accountName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  deleteMethod(resourceGroupName: string, accountName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<void>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -1982,10 +1803,7 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -1993,18 +1811,18 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchAccount} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccount} for more information.
+   *                      {Models.BatchAccount} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchAccount} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   get(resourceGroupName: string, accountName: string): Promise<Models.BatchAccount>;
-  get(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchAccount>;
+  get(resourceGroupName: string, accountName: string, options: msRest.RequestOptionsBase): Promise<Models.BatchAccount>;
   get(resourceGroupName: string, accountName: string, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
-  get(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
-  get(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchAccount>): any {
+  get(resourceGroupName: string, accountName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
+  get(resourceGroupName: string, accountName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccount>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -2030,10 +1848,7 @@ export class BatchAccountOperations {
   /**
    * Gets information about the Batch accounts associated with the subscription.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -2041,19 +1856,19 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchAccountListResult} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccountListResult} for more
+   *                      {Models.BatchAccountListResult} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchAccountListResult} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   list(): Promise<Models.BatchAccountListResult>;
-  list(options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchAccountListResult>;
+  list(options: msRest.RequestOptionsBase): Promise<Models.BatchAccountListResult>;
   list(callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
-  list(options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
-  list(options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchAccountListResult>): any {
+  list(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
+  list(options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccountListResult>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -2083,10 +1898,7 @@ export class BatchAccountOperations {
    * @param {string} resourceGroupName The name of the resource group that
    * contains the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -2094,19 +1906,19 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchAccountListResult} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccountListResult} for more
+   *                      {Models.BatchAccountListResult} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchAccountListResult} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   listByResourceGroup(resourceGroupName: string): Promise<Models.BatchAccountListResult>;
-  listByResourceGroup(resourceGroupName: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchAccountListResult>;
+  listByResourceGroup(resourceGroupName: string, options: msRest.RequestOptionsBase): Promise<Models.BatchAccountListResult>;
   listByResourceGroup(resourceGroupName: string, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
-  listByResourceGroup(resourceGroupName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
-  listByResourceGroup(resourceGroupName: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchAccountListResult>): any {
+  listByResourceGroup(resourceGroupName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
+  listByResourceGroup(resourceGroupName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccountListResult>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -2138,10 +1950,7 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -2149,17 +1958,17 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {null} [result]   - The deserialized result object if an error did not occur.
+   *                      {void} [result]   - The deserialized result object if an error did not occur.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   synchronizeAutoStorageKeys(resourceGroupName: string, accountName: string): Promise<void>;
-  synchronizeAutoStorageKeys(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+  synchronizeAutoStorageKeys(resourceGroupName: string, accountName: string, options: msRest.RequestOptionsBase): Promise<void>;
   synchronizeAutoStorageKeys(resourceGroupName: string, accountName: string, callback: msRest.ServiceCallback<void>): void;
-  synchronizeAutoStorageKeys(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<void>): void;
-  synchronizeAutoStorageKeys(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<void>): any {
+  synchronizeAutoStorageKeys(resourceGroupName: string, accountName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  synchronizeAutoStorageKeys(resourceGroupName: string, accountName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<void>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -2193,10 +2002,7 @@ export class BatchAccountOperations {
    * @param {string} keyName The type of account key to regenerate. Possible
    * values include: 'Primary', 'Secondary'
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -2204,18 +2010,19 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchAccountKeys} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccountKeys} for more information.
+   *                      {Models.BatchAccountKeys} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchAccountKeys} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   regenerateKey(resourceGroupName: string, accountName: string, keyName: string): Promise<Models.BatchAccountKeys>;
-  regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchAccountKeys>;
+  regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options: msRest.RequestOptionsBase): Promise<Models.BatchAccountKeys>;
   regenerateKey(resourceGroupName: string, accountName: string, keyName: string, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
-  regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
-  regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchAccountKeys>): any {
+  regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
+  regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccountKeys>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -2252,10 +2059,7 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -2263,18 +2067,19 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchAccountKeys} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccountKeys} for more information.
+   *                      {Models.BatchAccountKeys} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchAccountKeys} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   getKeys(resourceGroupName: string, accountName: string): Promise<Models.BatchAccountKeys>;
-  getKeys(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchAccountKeys>;
+  getKeys(resourceGroupName: string, accountName: string, options: msRest.RequestOptionsBase): Promise<Models.BatchAccountKeys>;
   getKeys(resourceGroupName: string, accountName: string, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
-  getKeys(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
-  getKeys(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchAccountKeys>): any {
+  getKeys(resourceGroupName: string, accountName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
+  getKeys(resourceGroupName: string, accountName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccountKeys>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -2312,41 +2117,10 @@ export class BatchAccountOperations {
    * service in the region in which the account is created. For example:
    * http://accountname.region.batch.azure.com/.
    *
-   * @param {object} parameters Additional parameters for account creation.
+   * @param {BatchAccountCreateParameters} parameters Additional parameters for
+   * account creation.
    *
-   * @param {string} parameters.location The region in which to create the
-   * account.
-   *
-   * @param {object} [parameters.tags] The user-specified tags associated with
-   * the account.
-   *
-   * @param {object} [parameters.autoStorage] The properties related to the
-   * auto-storage account.
-   *
-   * @param {string} parameters.autoStorage.storageAccountId The resource ID of
-   * the storage account to be used for auto-storage account.
-   *
-   * @param {string} [parameters.poolAllocationMode] The allocation mode to use
-   * for creating pools in the Batch account. The pool allocation mode also
-   * affects how clients may authenticate to the Batch Service API. If the mode
-   * is BatchService, clients may authenticate using access keys or Azure Active
-   * Directory. If the mode is UserSubscription, clients must use Azure Active
-   * Directory. The default is BatchService. Possible values include:
-   * 'BatchService', 'UserSubscription'
-   *
-   * @param {object} [parameters.keyVaultReference] A reference to the Azure key
-   * vault associated with the Batch account.
-   *
-   * @param {string} parameters.keyVaultReference.id The resource ID of the Azure
-   * key vault associated with the Batch account.
-   *
-   * @param {string} parameters.keyVaultReference.url The URL of the Azure key
-   * vault associated with the Batch account.
-   *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -2354,18 +2128,18 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchAccount} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccount} for more information.
+   *                      {Models.BatchAccount} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchAccount} for more information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   beginCreate(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters): Promise<Models.BatchAccount>;
-  beginCreate(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchAccount>;
+  beginCreate(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options: msRest.RequestOptionsBase): Promise<Models.BatchAccount>;
   beginCreate(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
-  beginCreate(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
-  beginCreate(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchAccount>): any {
+  beginCreate(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccount>): void;
+  beginCreate(resourceGroupName: string, accountName: string, parameters: Models.BatchAccountCreateParameters, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccount>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -2396,10 +2170,7 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -2407,17 +2178,17 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {null} [result]   - The deserialized result object if an error did not occur.
+   *                      {void} [result]   - The deserialized result object if an error did not occur.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   beginDeleteMethod(resourceGroupName: string, accountName: string): Promise<void>;
-  beginDeleteMethod(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+  beginDeleteMethod(resourceGroupName: string, accountName: string, options: msRest.RequestOptionsBase): Promise<void>;
   beginDeleteMethod(resourceGroupName: string, accountName: string, callback: msRest.ServiceCallback<void>): void;
-  beginDeleteMethod(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<void>): void;
-  beginDeleteMethod(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<void>): any {
+  beginDeleteMethod(resourceGroupName: string, accountName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  beginDeleteMethod(resourceGroupName: string, accountName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<void>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -2446,10 +2217,7 @@ export class BatchAccountOperations {
    * @param {string} nextPageLink The NextLink from the previous successful call
    * to List operation.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -2457,19 +2225,19 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchAccountListResult} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccountListResult} for more
+   *                      {Models.BatchAccountListResult} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchAccountListResult} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   listNext(nextPageLink: string): Promise<Models.BatchAccountListResult>;
-  listNext(nextPageLink: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchAccountListResult>;
+  listNext(nextPageLink: string, options: msRest.RequestOptionsBase): Promise<Models.BatchAccountListResult>;
   listNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
-  listNext(nextPageLink: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
-  listNext(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchAccountListResult>): any {
+  listNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
+  listNext(nextPageLink: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccountListResult>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -2499,10 +2267,7 @@ export class BatchAccountOperations {
    * @param {string} nextPageLink The NextLink from the previous successful call
    * to List operation.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -2510,19 +2275,19 @@ export class BatchAccountOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchAccountListResult} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchAccountListResult} for more
+   *                      {Models.BatchAccountListResult} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchAccountListResult} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   listByResourceGroupNext(nextPageLink: string): Promise<Models.BatchAccountListResult>;
-  listByResourceGroupNext(nextPageLink: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchAccountListResult>;
+  listByResourceGroupNext(nextPageLink: string, options: msRest.RequestOptionsBase): Promise<Models.BatchAccountListResult>;
   listByResourceGroupNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
-  listByResourceGroupNext(nextPageLink: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
-  listByResourceGroupNext(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchAccountListResult>): any {
+  listByResourceGroupNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccountListResult>): void;
+  listByResourceGroupNext(nextPageLink: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccountListResult>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;

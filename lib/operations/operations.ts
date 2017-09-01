@@ -11,7 +11,7 @@
 import * as msRest from "ms-rest-ts";
 import * as Models from "../models";
 import * as Mappers from "../models/mappers";
-import { BatchManagementClient } from '../batchManagementClient';
+import { BatchManagementClient } from "../batchManagementClient";
 
 const WebResource = msRest.WebResource;
 
@@ -29,18 +29,15 @@ export class Operations {
   /**
    * Lists available operations for the Microsoft.Batch provider
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<OperationListResult>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async listWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async listWithHttpOperationResponse(options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -142,18 +139,15 @@ export class Operations {
    * @param {string} nextPageLink The NextLink from the previous successful call
    * to List operation.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<OperationListResult>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async listNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async listNextWithHttpOperationResponse(nextPageLink: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -247,10 +241,7 @@ export class Operations {
   /**
    * Lists available operations for the Microsoft.Batch provider
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -258,18 +249,19 @@ export class Operations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {OperationListResult} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link OperationListResult} for more information.
+   *                      {Models.OperationListResult} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.OperationListResult} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   list(): Promise<Models.OperationListResult>;
-  list(options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.OperationListResult>;
+  list(options: msRest.RequestOptionsBase): Promise<Models.OperationListResult>;
   list(callback: msRest.ServiceCallback<Models.OperationListResult>): void;
-  list(options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.OperationListResult>): void;
-  list(options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.OperationListResult>): any {
+  list(options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.OperationListResult>): void;
+  list(options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.OperationListResult>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -298,10 +290,7 @@ export class Operations {
    * @param {string} nextPageLink The NextLink from the previous successful call
    * to List operation.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -309,18 +298,19 @@ export class Operations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {OperationListResult} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link OperationListResult} for more information.
+   *                      {Models.OperationListResult} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.OperationListResult} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   listNext(nextPageLink: string): Promise<Models.OperationListResult>;
-  listNext(nextPageLink: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.OperationListResult>;
+  listNext(nextPageLink: string, options: msRest.RequestOptionsBase): Promise<Models.OperationListResult>;
   listNext(nextPageLink: string, callback: msRest.ServiceCallback<Models.OperationListResult>): void;
-  listNext(nextPageLink: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.OperationListResult>): void;
-  listNext(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.OperationListResult>): any {
+  listNext(nextPageLink: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.OperationListResult>): void;
+  listNext(nextPageLink: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.OperationListResult>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;

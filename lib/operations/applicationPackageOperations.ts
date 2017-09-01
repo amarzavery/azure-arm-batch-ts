@@ -11,7 +11,7 @@
 import * as msRest from "ms-rest-ts";
 import * as Models from "../models";
 import * as Mappers from "../models/mappers";
-import { BatchManagementClient } from '../batchManagementClient';
+import { BatchManagementClient } from "../batchManagementClient";
 
 const WebResource = msRest.WebResource;
 
@@ -40,18 +40,15 @@ export class ApplicationPackageOperations {
    *
    * @param {string} format The format of the application package binary file.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async activateWithHttpOperationResponse(resourceGroupName: string, accountName: string, applicationId: string, version: string, format: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async activateWithHttpOperationResponse(resourceGroupName: string, accountName: string, applicationId: string, version: string, format: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -206,18 +203,15 @@ export class ApplicationPackageOperations {
    *
    * @param {string} version The version of the application.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ApplicationPackage>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async createWithHttpOperationResponse(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async createWithHttpOperationResponse(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -365,18 +359,15 @@ export class ApplicationPackageOperations {
    *
    * @param {string} version The version of the application to delete.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async deleteMethodWithHttpOperationResponse(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async deleteMethodWithHttpOperationResponse(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -509,18 +500,15 @@ export class ApplicationPackageOperations {
    *
    * @param {string} version The version of the application.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<ApplicationPackage>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async getWithHttpOperationResponse(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async getWithHttpOperationResponse(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -670,10 +658,7 @@ export class ApplicationPackageOperations {
    *
    * @param {string} format The format of the application package binary file.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -681,17 +666,17 @@ export class ApplicationPackageOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {null} [result]   - The deserialized result object if an error did not occur.
+   *                      {void} [result]   - The deserialized result object if an error did not occur.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   activate(resourceGroupName: string, accountName: string, applicationId: string, version: string, format: string): Promise<void>;
-  activate(resourceGroupName: string, accountName: string, applicationId: string, version: string, format: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+  activate(resourceGroupName: string, accountName: string, applicationId: string, version: string, format: string, options: msRest.RequestOptionsBase): Promise<void>;
   activate(resourceGroupName: string, accountName: string, applicationId: string, version: string, format: string, callback: msRest.ServiceCallback<void>): void;
-  activate(resourceGroupName: string, accountName: string, applicationId: string, version: string, format: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<void>): void;
-  activate(resourceGroupName: string, accountName: string, applicationId: string, version: string, format: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<void>): any {
+  activate(resourceGroupName: string, accountName: string, applicationId: string, version: string, format: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  activate(resourceGroupName: string, accountName: string, applicationId: string, version: string, format: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<void>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -726,10 +711,7 @@ export class ApplicationPackageOperations {
    *
    * @param {string} version The version of the application.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -737,18 +719,19 @@ export class ApplicationPackageOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ApplicationPackage} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ApplicationPackage} for more information.
+   *                      {Models.ApplicationPackage} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.ApplicationPackage} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   create(resourceGroupName: string, accountName: string, applicationId: string, version: string): Promise<Models.ApplicationPackage>;
-  create(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.ApplicationPackage>;
+  create(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: msRest.RequestOptionsBase): Promise<Models.ApplicationPackage>;
   create(resourceGroupName: string, accountName: string, applicationId: string, version: string, callback: msRest.ServiceCallback<Models.ApplicationPackage>): void;
-  create(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.ApplicationPackage>): void;
-  create(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.ApplicationPackage>): any {
+  create(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ApplicationPackage>): void;
+  create(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.ApplicationPackage>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -783,10 +766,7 @@ export class ApplicationPackageOperations {
    *
    * @param {string} version The version of the application to delete.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -794,17 +774,17 @@ export class ApplicationPackageOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {null} [result]   - The deserialized result object if an error did not occur.
+   *                      {void} [result]   - The deserialized result object if an error did not occur.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   deleteMethod(resourceGroupName: string, accountName: string, applicationId: string, version: string): Promise<void>;
-  deleteMethod(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+  deleteMethod(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: msRest.RequestOptionsBase): Promise<void>;
   deleteMethod(resourceGroupName: string, accountName: string, applicationId: string, version: string, callback: msRest.ServiceCallback<void>): void;
-  deleteMethod(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<void>): void;
-  deleteMethod(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<void>): any {
+  deleteMethod(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  deleteMethod(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<void>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -839,10 +819,7 @@ export class ApplicationPackageOperations {
    *
    * @param {string} version The version of the application.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -850,18 +827,19 @@ export class ApplicationPackageOperations {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {ApplicationPackage} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link ApplicationPackage} for more information.
+   *                      {Models.ApplicationPackage} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.ApplicationPackage} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   get(resourceGroupName: string, accountName: string, applicationId: string, version: string): Promise<Models.ApplicationPackage>;
-  get(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.ApplicationPackage>;
+  get(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: msRest.RequestOptionsBase): Promise<Models.ApplicationPackage>;
   get(resourceGroupName: string, accountName: string, applicationId: string, version: string, callback: msRest.ServiceCallback<Models.ApplicationPackage>): void;
-  get(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.ApplicationPackage>): void;
-  get(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.ApplicationPackage>): any {
+  get(resourceGroupName: string, accountName: string, applicationId: string, version: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ApplicationPackage>): void;
+  get(resourceGroupName: string, accountName: string, applicationId: string, version: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.ApplicationPackage>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;

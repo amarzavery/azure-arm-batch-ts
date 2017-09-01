@@ -11,7 +11,7 @@
 import * as msRest from "ms-rest-ts";
 import * as Models from "../models";
 import * as Mappers from "../models/mappers";
-import { BatchManagementClient } from '../batchManagementClient';
+import { BatchManagementClient } from "../batchManagementClient";
 
 const WebResource = msRest.WebResource;
 
@@ -33,18 +33,15 @@ export class Location {
    * @param {string} locationName The region for which to retrieve Batch service
    * quotas.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<BatchLocationQuota>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async getQuotasWithHttpOperationResponse(locationName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async getQuotasWithHttpOperationResponse(locationName: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -155,18 +152,15 @@ export class Location {
    *
    * @param {string} name The name to check for availability
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @returns {Promise} A promise is returned
    *
-   * @resolve {HttpOperationResponse<CheckNameAvailabilityResult>} - The deserialized result object.
+   * @resolve {HttpOperationResponse} - The deserialized result object.
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async checkNameAvailabilityWithHttpOperationResponse(locationName: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<msRest.HttpOperationResponse> {
+  async checkNameAvailabilityWithHttpOperationResponse(locationName: string, name: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -303,10 +297,7 @@ export class Location {
    * @param {string} locationName The region for which to retrieve Batch service
    * quotas.
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -314,18 +305,19 @@ export class Location {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {BatchLocationQuota} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link BatchLocationQuota} for more information.
+   *                      {Models.BatchLocationQuota} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.BatchLocationQuota} for more
+   *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   getQuotas(locationName: string): Promise<Models.BatchLocationQuota>;
-  getQuotas(locationName: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.BatchLocationQuota>;
+  getQuotas(locationName: string, options: msRest.RequestOptionsBase): Promise<Models.BatchLocationQuota>;
   getQuotas(locationName: string, callback: msRest.ServiceCallback<Models.BatchLocationQuota>): void;
-  getQuotas(locationName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.BatchLocationQuota>): void;
-  getQuotas(locationName: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.BatchLocationQuota>): any {
+  getQuotas(locationName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchLocationQuota>): void;
+  getQuotas(locationName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchLocationQuota>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
@@ -355,10 +347,7 @@ export class Location {
    *
    * @param {string} name The name to check for availability
    *
-   * @param {object} [options] Optional Parameters.
-   *
-   * @param {object} [options.customHeaders] Headers that will be added to the
-   * request
+   * @param {RequestOptionsBase} [options] Optional Parameters.
    *
    * @param {ServiceCallback} callback - The callback.
    *
@@ -366,19 +355,19 @@ export class Location {
    *
    *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
    *
-   *                      {CheckNameAvailabilityResult} [result]   - The deserialized result object if an error did not occur.
-   *                      See {@link CheckNameAvailabilityResult} for more
+   *                      {Models.CheckNameAvailabilityResult} [result]   - The deserialized result object if an error did not occur.
+   *                      See {@link Models.CheckNameAvailabilityResult} for more
    *                      information.
    *
    *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
    *
-   *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+   *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
   checkNameAvailability(locationName: string, name: string): Promise<Models.CheckNameAvailabilityResult>;
-  checkNameAvailability(locationName: string, name: string, options: { customHeaders? : { [headerName: string]: string; } }): Promise<Models.CheckNameAvailabilityResult>;
+  checkNameAvailability(locationName: string, name: string, options: msRest.RequestOptionsBase): Promise<Models.CheckNameAvailabilityResult>;
   checkNameAvailability(locationName: string, name: string, callback: msRest.ServiceCallback<Models.CheckNameAvailabilityResult>): void;
-  checkNameAvailability(locationName: string, name: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: msRest.ServiceCallback<Models.CheckNameAvailabilityResult>): void;
-  checkNameAvailability(locationName: string, name: string, options?: { customHeaders? : { [headerName: string]: string; } }, callback?: msRest.ServiceCallback<Models.CheckNameAvailabilityResult>): any {
+  checkNameAvailability(locationName: string, name: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.CheckNameAvailabilityResult>): void;
+  checkNameAvailability(locationName: string, name: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.CheckNameAvailabilityResult>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;

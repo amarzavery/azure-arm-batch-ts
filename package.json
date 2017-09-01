@@ -6,17 +6,20 @@
   "dependencies": {
     "ms-rest-azure-ts": "amarzavery/ms-rest-azure#master"
   },
-  "main": "./dist/node/batchManagementClient.js",
+  "main": "./dist/lib/batchManagementClient.js",
   "types": "./typings/lib/batchManagementClient.d.ts",
+  "browser": {
+    "./node_modules/ms-rest-ts/dist/lib/util/nodeFetch.js": "./node_modules/ms-rest-ts/dist/lib/util/browserFetch.js"
+  },
   "devDependencies": {
-    "ts-loader": "^2.2.2",
-    "tslint": "^5.2.0",
-    "webpack": "^3.3.0",
-    "uglify-es": "^3.0.25",
-    "typescript": "^2.4.1"
+    "ts-loader": "^2.3.4",
+    "tslint": "^5.7.0",
+    "webpack": "^3.5.5",
+    "uglify-es": "^3.0.28",
+    "typescript": "^2.4.2"
   },
   "scripts": {
-    "tsc": "tsc -p tsconfig.node.json && tsc -p tsconfig.browser.json",
+    "tsc": "tsc -p tsconfig.json",
     "build": "npm -s run-script tsc && webpack && node node_modules/uglify-es/bin/uglifyjs --source-map -c -m -o bundle.min.js bundle.js"
   }
 }

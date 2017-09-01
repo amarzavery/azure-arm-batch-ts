@@ -774,6 +774,43 @@ export const CheckNameAvailabilityResult = {
   }
 };
 
+export const ApplicationCreateOptionalParams = {
+  required: false,
+  serializedName: 'CreateOptions',
+  type: {
+    name: 'Composite',
+    className: 'ApplicationCreateOptionalParams',
+    modelProperties: {
+      parameters: {
+        required: false,
+        serializedName: 'parameters',
+        type: {
+          name: 'Composite',
+          className: 'ApplicationCreateParameters'
+        }
+      }
+    }
+  }
+};
+
+export const ApplicationListOptionalParams = {
+  required: false,
+  serializedName: 'ListOptions',
+  type: {
+    name: 'Composite',
+    className: 'ApplicationListOptionalParams',
+    modelProperties: {
+      maxresults: {
+        required: false,
+        serializedName: 'maxresults',
+        type: {
+          name: 'Number'
+        }
+      }
+    }
+  }
+};
+
 export const BatchAccountListResult = {
   required: false,
   serializedName: 'BatchAccountListResult',
