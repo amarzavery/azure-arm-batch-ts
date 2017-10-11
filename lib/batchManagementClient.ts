@@ -10,8 +10,8 @@
 
 import * as Models from "./models";
 import * as Mappers from "./models/mappers";
-import * as msRest from "ms-rest-ts";
-import * as msRestAzure from "ms-rest-azure-ts";
+import * as msRest from "ms-rest-js";
+import * as msRestAzure from "ms-rest-azure-js";
 import * as operations from "./operations";
 
 const packageName = 'foo';
@@ -33,9 +33,9 @@ class BatchManagementClient extends msRestAzure.AzureServiceClient {
   baseUri: string;
 
   // Operation groups
-  batchAccountOperations: operations.BatchAccountOperations;
-  applicationPackageOperations: operations.ApplicationPackageOperations;
-  applicationOperations: operations.ApplicationOperations;
+  batchAccount: operations.BatchAccountOperations;
+  applicationPackage: operations.ApplicationPackageOperations;
+  application: operations.ApplicationOperations;
   location: operations.Location;
   operations: operations.Operations;
   serializer: msRest.Serializer;
@@ -100,9 +100,9 @@ class BatchManagementClient extends msRestAzure.AzureServiceClient {
     if(options.generateClientRequestId !== null && options.generateClientRequestId !== undefined) {
       this.generateClientRequestId = options.generateClientRequestId;
     }
-    this.batchAccountOperations = new operations.BatchAccountOperations(this);
-    this.applicationPackageOperations = new operations.ApplicationPackageOperations(this);
-    this.applicationOperations = new operations.ApplicationOperations(this);
+    this.batchAccount = new operations.BatchAccountOperations(this);
+    this.applicationPackage = new operations.ApplicationPackageOperations(this);
+    this.application = new operations.ApplicationOperations(this);
     this.location = new operations.Location(this);
     this.operations = new operations.Operations(this);
     this.serializer = new msRest.Serializer(Mappers);

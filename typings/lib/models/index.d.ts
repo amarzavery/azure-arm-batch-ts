@@ -1,5 +1,5 @@
-import { BaseResource, CloudError } from "ms-rest-azure-ts";
-import { RequestOptionsBase } from "ms-rest-ts";
+import { BaseResource, CloudError } from "ms-rest-azure-js";
+import { RequestOptionsBase } from "ms-rest-js";
 export { BaseResource, CloudError };
 /**
  * @interface

@@ -8,7 +8,7 @@
  * regenerated.
  */
 
-import * as msRest from "ms-rest-ts";
+import * as msRest from "ms-rest-js";
 import * as Models from "../models";
 import * as Mappers from "../models/mappers";
 import { BatchManagementClient } from "../batchManagementClient";
@@ -98,10 +98,10 @@ export class ApplicationOperations {
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{applicationId}', encodeURIComponent(applicationId));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -262,10 +262,10 @@ export class ApplicationOperations {
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{applicationId}', encodeURIComponent(applicationId));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -397,10 +397,10 @@ export class ApplicationOperations {
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{applicationId}', encodeURIComponent(applicationId));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -553,10 +553,10 @@ export class ApplicationOperations {
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{applicationId}', encodeURIComponent(applicationId));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -700,13 +700,13 @@ export class ApplicationOperations {
     requestUrl = requestUrl.replace('{resourceGroupName}', encodeURIComponent(resourceGroupName));
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
+    let queryParamsArray: Array<any> = [];
     if (maxresults !== null && maxresults !== undefined) {
-      queryParameters.push('maxresults=' + encodeURIComponent(maxresults.toString()));
+      queryParamsArray.push('maxresults=' + encodeURIComponent(maxresults.toString()));
     }
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects

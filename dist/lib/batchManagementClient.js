@@ -13,8 +13,8 @@ const Models = require("./models");
 exports.BatchManagementModels = Models;
 const Mappers = require("./models/mappers");
 exports.BatchManagementMappers = Mappers;
-const msRest = require("ms-rest-ts");
-const msRestAzure = require("ms-rest-azure-ts");
+const msRest = require("ms-rest-js");
+const msRestAzure = require("ms-rest-azure-js");
 const operations = require("./operations");
 const packageName = 'foo';
 const packageVersion = '3.0.0-preview';
@@ -76,9 +76,9 @@ class BatchManagementClient extends msRestAzure.AzureServiceClient {
         if (options.generateClientRequestId !== null && options.generateClientRequestId !== undefined) {
             this.generateClientRequestId = options.generateClientRequestId;
         }
-        this.batchAccountOperations = new operations.BatchAccountOperations(this);
-        this.applicationPackageOperations = new operations.ApplicationPackageOperations(this);
-        this.applicationOperations = new operations.ApplicationOperations(this);
+        this.batchAccount = new operations.BatchAccountOperations(this);
+        this.applicationPackage = new operations.ApplicationPackageOperations(this);
+        this.application = new operations.ApplicationOperations(this);
         this.location = new operations.Location(this);
         this.operations = new operations.Operations(this);
         this.serializer = new msRest.Serializer(Mappers);

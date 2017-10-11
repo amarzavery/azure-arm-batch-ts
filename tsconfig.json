@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "module": "commonjs",
     "noImplicitAny": true,
     "preserveConstEnums": true,
     "sourceMap": true,
@@ -12,23 +11,22 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "dist/lib",
     "allowJs": false,
     "strict": true,
     "strictNullChecks": true,
+    "module": "commonjs",
+    "outDir": "./dist/lib",
     "declaration": true,
     "declarationDir": "./typings/lib",
-    "lib": [
-      "dom",
-      "es2015",
-      "es2016"
-    ]
+    "lib": [ "dom", "dom.iterable", "es5", "es6", "es7", "esnext", "esnext.asynciterable", "es2015.iterable"]
   },
   "compileOnSave": true,
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "sample"
   ],
   "include": [
-    "./lib/**/*.ts"
+    "./lib/**/*.ts",
+    "./test/**/*.ts"
   ]
 }

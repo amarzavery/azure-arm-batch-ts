@@ -8,7 +8,7 @@
  * regenerated.
  */
 
-import * as msRest from "ms-rest-ts";
+import * as msRest from "ms-rest-js";
 import * as Models from "../models";
 import * as Mappers from "../models/mappers";
 import { BatchManagementClient } from "../batchManagementClient";
@@ -158,10 +158,10 @@ export class BatchAccountOperations {
     requestUrl = requestUrl.replace('{resourceGroupName}', encodeURIComponent(resourceGroupName));
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -353,10 +353,10 @@ export class BatchAccountOperations {
     requestUrl = requestUrl.replace('{resourceGroupName}', encodeURIComponent(resourceGroupName));
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -464,10 +464,10 @@ export class BatchAccountOperations {
     let baseUrl = this.client.baseUri;
     let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'subscriptions/{subscriptionId}/providers/Microsoft.Batch/batchAccounts';
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -589,10 +589,10 @@ export class BatchAccountOperations {
     let requestUrl = baseUrl + (baseUrl.endsWith('/') ? '' : '/') + 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts';
     requestUrl = requestUrl.replace('{resourceGroupName}', encodeURIComponent(resourceGroupName));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -734,10 +734,10 @@ export class BatchAccountOperations {
     requestUrl = requestUrl.replace('{resourceGroupName}', encodeURIComponent(resourceGroupName));
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -879,10 +879,10 @@ export class BatchAccountOperations {
     requestUrl = requestUrl.replace('{resourceGroupName}', encodeURIComponent(resourceGroupName));
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -1043,10 +1043,10 @@ export class BatchAccountOperations {
     requestUrl = requestUrl.replace('{resourceGroupName}', encodeURIComponent(resourceGroupName));
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -1200,10 +1200,10 @@ export class BatchAccountOperations {
     requestUrl = requestUrl.replace('{resourceGroupName}', encodeURIComponent(resourceGroupName));
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects
@@ -1358,10 +1358,10 @@ export class BatchAccountOperations {
     requestUrl = requestUrl.replace('{resourceGroupName}', encodeURIComponent(resourceGroupName));
     requestUrl = requestUrl.replace('{accountName}', encodeURIComponent(accountName));
     requestUrl = requestUrl.replace('{subscriptionId}', encodeURIComponent(this.client.subscriptionId));
-    let queryParameters: Array<any> = [];
-    queryParameters.push('api-version=' + encodeURIComponent(this.client.apiVersion));
-    if (queryParameters.length > 0) {
-      requestUrl += '?' + queryParameters.join('&');
+    let queryParamsArray: Array<any> = [];
+    queryParamsArray.push('api-version=' + encodeURIComponent(this.client.apiVersion));
+    if (queryParamsArray.length > 0) {
+      requestUrl += '?' + queryParamsArray.join('&');
     }
 
     // Create HTTP transport objects

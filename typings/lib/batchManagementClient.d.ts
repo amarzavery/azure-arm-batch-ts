@@ -1,7 +1,7 @@
 import * as Models from "./models";
 import * as Mappers from "./models/mappers";
-import * as msRest from "ms-rest-ts";
-import * as msRestAzure from "ms-rest-azure-ts";
+import * as msRest from "ms-rest-js";
+import * as msRestAzure from "ms-rest-azure-js";
 import * as operations from "./operations";
 declare class BatchManagementClient extends msRestAzure.AzureServiceClient {
     credentials: msRest.ServiceClientCredentials;
@@ -11,9 +11,9 @@ declare class BatchManagementClient extends msRestAzure.AzureServiceClient {
     longRunningOperationRetryTimeout: number;
     generateClientRequestId: boolean;
     baseUri: string;
-    batchAccountOperations: operations.BatchAccountOperations;
-    applicationPackageOperations: operations.ApplicationPackageOperations;
-    applicationOperations: operations.ApplicationOperations;
+    batchAccount: operations.BatchAccountOperations;
+    applicationPackage: operations.ApplicationPackageOperations;
+    application: operations.ApplicationOperations;
     location: operations.Location;
     operations: operations.Operations;
     serializer: msRest.Serializer;

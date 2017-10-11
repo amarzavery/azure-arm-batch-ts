@@ -8,7 +8,7 @@
  * regenerated.
  */
 
-import {CloudErrorMapper, BaseResourceMapper } from "ms-rest-azure-ts";
+import { CloudErrorMapper, BaseResourceMapper } from "ms-rest-azure-js";
 
 export const CloudError = CloudErrorMapper;
 export const BaseResource = BaseResourceMapper;
@@ -76,11 +76,11 @@ export const BatchAccountCreateParameters = {
         type: {
           name: 'Dictionary',
           value: {
-              required: false,
-              serializedName: 'stringElementType',
-              type: {
-                name: 'String'
-              }
+            required: false,
+            serializedName: 'stringElementType',
+            type: {
+              name: 'String'
+            }
           }
         }
       },
@@ -97,7 +97,7 @@ export const BatchAccountCreateParameters = {
         serializedName: 'properties.poolAllocationMode',
         type: {
           name: 'Enum',
-          allowedValues: [ 'BatchService', 'UserSubscription' ]
+          allowedValues: ['BatchService', 'UserSubscription']
         }
       },
       keyVaultReference: {
@@ -183,11 +183,11 @@ export const Resource = {
         type: {
           name: 'Dictionary',
           value: {
-              required: false,
-              serializedName: 'stringElementType',
-              type: {
-                name: 'String'
-              }
+            required: false,
+            serializedName: 'stringElementType',
+            type: {
+              name: 'String'
+            }
           }
         }
       }
@@ -241,11 +241,11 @@ export const BatchAccount = {
         type: {
           name: 'Dictionary',
           value: {
-              required: false,
-              serializedName: 'stringElementType',
-              type: {
-                name: 'String'
-              }
+            required: false,
+            serializedName: 'stringElementType',
+            type: {
+              name: 'String'
+            }
           }
         }
       },
@@ -263,7 +263,7 @@ export const BatchAccount = {
         serializedName: 'properties.provisioningState',
         type: {
           name: 'Enum',
-          allowedValues: [ 'Invalid', 'Creating', 'Deleting', 'Succeeded', 'Failed', 'Cancelled' ]
+          allowedValues: ['Invalid', 'Creating', 'Deleting', 'Succeeded', 'Failed', 'Cancelled']
         }
       },
       poolAllocationMode: {
@@ -272,7 +272,7 @@ export const BatchAccount = {
         serializedName: 'properties.poolAllocationMode',
         type: {
           name: 'Enum',
-          allowedValues: [ 'BatchService', 'UserSubscription' ]
+          allowedValues: ['BatchService', 'UserSubscription']
         }
       },
       keyVaultReference: {
@@ -342,11 +342,11 @@ export const BatchAccountUpdateParameters = {
         type: {
           name: 'Dictionary',
           value: {
-              required: false,
-              serializedName: 'stringElementType',
-              type: {
-                name: 'String'
-              }
+            required: false,
+            serializedName: 'stringElementType',
+            type: {
+              name: 'String'
+            }
           }
         }
       },
@@ -374,7 +374,7 @@ export const BatchAccountRegenerateKeyParameters = {
         serializedName: 'keyName',
         type: {
           name: 'Enum',
-          allowedValues: [ 'Primary', 'Secondary' ]
+          allowedValues: ['Primary', 'Secondary']
         }
       }
     }
@@ -488,7 +488,7 @@ export const ApplicationPackage = {
         serializedName: 'state',
         type: {
           name: 'Enum',
-          allowedValues: [ 'pending', 'active', 'unmapped' ]
+          allowedValues: ['pending', 'active', 'unmapped']
         }
       },
       format: {
@@ -554,12 +554,12 @@ export const Application = {
         type: {
           name: 'Sequence',
           element: {
-              required: false,
-              serializedName: 'ApplicationPackageElementType',
-              type: {
-                name: 'Composite',
-                className: 'ApplicationPackage'
-              }
+            required: false,
+            serializedName: 'ApplicationPackageElementType',
+            type: {
+              name: 'Composite',
+              className: 'ApplicationPackage'
+            }
           }
         }
       },
@@ -759,7 +759,7 @@ export const CheckNameAvailabilityResult = {
         serializedName: 'reason',
         type: {
           name: 'Enum',
-          allowedValues: [ 'Invalid', 'AlreadyExists' ]
+          allowedValues: ['Invalid', 'AlreadyExists']
         }
       },
       message: {
@@ -824,12 +824,12 @@ export const BatchAccountListResult = {
         type: {
           name: 'Sequence',
           element: {
-              required: false,
-              serializedName: 'BatchAccountElementType',
-              type: {
-                name: 'Composite',
-                className: 'BatchAccount'
-              }
+            required: false,
+            serializedName: 'BatchAccountElementType',
+            type: {
+              name: 'Composite',
+              className: 'BatchAccount'
+            }
           }
         }
       },
@@ -857,12 +857,12 @@ export const ListApplicationsResult = {
         type: {
           name: 'Sequence',
           element: {
-              required: false,
-              serializedName: 'ApplicationElementType',
-              type: {
-                name: 'Composite',
-                className: 'Application'
-              }
+            required: false,
+            serializedName: 'ApplicationElementType',
+            type: {
+              name: 'Composite',
+              className: 'Application'
+            }
           }
         }
       },
@@ -890,12 +890,12 @@ export const OperationListResult = {
         type: {
           name: 'Sequence',
           element: {
-              required: false,
-              serializedName: 'OperationElementType',
-              type: {
-                name: 'Composite',
-                className: 'Operation'
-              }
+            required: false,
+            serializedName: 'OperationElementType',
+            type: {
+              name: 'Composite',
+              className: 'Operation'
+            }
           }
         }
       },
