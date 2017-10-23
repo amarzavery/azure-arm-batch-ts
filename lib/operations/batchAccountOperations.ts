@@ -806,8 +806,8 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {string} keyName The type of account key to regenerate. Possible
-   * values include: 'Primary', 'Secondary'
+   * @param {AccountKeyType} keyName The type of account key to regenerate.
+   * Possible values include: 'Primary', 'Secondary'
    *
    * @param {RequestOptionsBase} [options] Optional Parameters.
    *
@@ -817,7 +817,7 @@ export class BatchAccountOperations {
    *
    * @reject {Error|ServiceError} - The error object.
    */
-  async regenerateKeyWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyName: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
+  async regenerateKeyWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse> {
     let client = this.client;
     // Validate
     try {
@@ -1999,8 +1999,8 @@ export class BatchAccountOperations {
    *
    * @param {string} accountName The name of the Batch account.
    *
-   * @param {string} keyName The type of account key to regenerate. Possible
-   * values include: 'Primary', 'Secondary'
+   * @param {AccountKeyType} keyName The type of account key to regenerate.
+   * Possible values include: 'Primary', 'Secondary'
    *
    * @param {RequestOptionsBase} [options] Optional Parameters.
    *
@@ -2018,11 +2018,11 @@ export class BatchAccountOperations {
    *
    *                      {Response} [response] - The HTTP Response stream if an error did not occur.
    */
-  regenerateKey(resourceGroupName: string, accountName: string, keyName: string): Promise<Models.BatchAccountKeys>;
-  regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options: msRest.RequestOptionsBase): Promise<Models.BatchAccountKeys>;
-  regenerateKey(resourceGroupName: string, accountName: string, keyName: string, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
-  regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
-  regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccountKeys>): any {
+  regenerateKey(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType): Promise<Models.BatchAccountKeys>;
+  regenerateKey(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType, options: msRest.RequestOptionsBase): Promise<Models.BatchAccountKeys>;
+  regenerateKey(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
+  regenerateKey(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
+  regenerateKey(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType, options?: msRest.RequestOptionsBase, callback?: msRest.ServiceCallback<Models.BatchAccountKeys>): any {
     if (!callback && typeof options === 'function') {
       callback = options;
       options = undefined;
