@@ -144,8 +144,8 @@ export declare class BatchAccountOperations {
      *
      * @param {string} accountName The name of the Batch account.
      *
-     * @param {string} keyName The type of account key to regenerate. Possible
-     * values include: 'Primary', 'Secondary'
+     * @param {AccountKeyType} keyName The type of account key to regenerate.
+     * Possible values include: 'Primary', 'Secondary'
      *
      * @param {RequestOptionsBase} [options] Optional Parameters.
      *
@@ -155,7 +155,7 @@ export declare class BatchAccountOperations {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    regenerateKeyWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyName: string, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse>;
+    regenerateKeyWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType, options?: msRest.RequestOptionsBase): Promise<msRest.HttpOperationResponse>;
     /**
      * @summary Gets the account keys for the specified Batch account.
      *
@@ -459,8 +459,8 @@ export declare class BatchAccountOperations {
      *
      * @param {string} accountName The name of the Batch account.
      *
-     * @param {string} keyName The type of account key to regenerate. Possible
-     * values include: 'Primary', 'Secondary'
+     * @param {AccountKeyType} keyName The type of account key to regenerate.
+     * Possible values include: 'Primary', 'Secondary'
      *
      * @param {RequestOptionsBase} [options] Optional Parameters.
      *
@@ -478,10 +478,10 @@ export declare class BatchAccountOperations {
      *
      *                      {Response} [response] - The HTTP Response stream if an error did not occur.
      */
-    regenerateKey(resourceGroupName: string, accountName: string, keyName: string): Promise<Models.BatchAccountKeys>;
-    regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options: msRest.RequestOptionsBase): Promise<Models.BatchAccountKeys>;
-    regenerateKey(resourceGroupName: string, accountName: string, keyName: string, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
-    regenerateKey(resourceGroupName: string, accountName: string, keyName: string, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
+    regenerateKey(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType): Promise<Models.BatchAccountKeys>;
+    regenerateKey(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType, options: msRest.RequestOptionsBase): Promise<Models.BatchAccountKeys>;
+    regenerateKey(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
+    regenerateKey(resourceGroupName: string, accountName: string, keyName: Models.AccountKeyType, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.BatchAccountKeys>): void;
     /**
      * @summary Gets the account keys for the specified Batch account.
      *
