@@ -819,8 +819,8 @@ class BatchAccountOperations {
      *
      * @param {string} accountName The name of the Batch account.
      *
-     * @param {string} keyName The type of account key to regenerate. Possible
-     * values include: 'Primary', 'Secondary'
+     * @param {AccountKeyType} keyName The type of account key to regenerate.
+     * Possible values include: 'Primary', 'Secondary'
      *
      * @param {RequestOptionsBase} [options] Optional Parameters.
      *

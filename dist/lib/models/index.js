@@ -9,4 +9,65 @@
  * regenerated.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Defines values for PoolAllocationMode.
+ * Possible values include: 'BatchService', 'UserSubscription'
+ * @readonly
+ * @enum {string}
+ */
+var PoolAllocationMode;
+(function (PoolAllocationMode) {
+    PoolAllocationMode["BatchService"] = "BatchService";
+    PoolAllocationMode["UserSubscription"] = "UserSubscription";
+})(PoolAllocationMode = exports.PoolAllocationMode || (exports.PoolAllocationMode = {}));
+/**
+ * Defines values for ProvisioningState.
+ * Possible values include: 'Invalid', 'Creating', 'Deleting', 'Succeeded',
+ * 'Failed', 'Cancelled'
+ * @readonly
+ * @enum {string}
+ */
+var ProvisioningState;
+(function (ProvisioningState) {
+    ProvisioningState["Invalid"] = "Invalid";
+    ProvisioningState["Creating"] = "Creating";
+    ProvisioningState["Deleting"] = "Deleting";
+    ProvisioningState["Succeeded"] = "Succeeded";
+    ProvisioningState["Failed"] = "Failed";
+    ProvisioningState["Cancelled"] = "Cancelled";
+})(ProvisioningState = exports.ProvisioningState || (exports.ProvisioningState = {}));
+/**
+ * Defines values for AccountKeyType.
+ * Possible values include: 'Primary', 'Secondary'
+ * @readonly
+ * @enum {string}
+ */
+var AccountKeyType;
+(function (AccountKeyType) {
+    AccountKeyType["Primary"] = "Primary";
+    AccountKeyType["Secondary"] = "Secondary";
+})(AccountKeyType = exports.AccountKeyType || (exports.AccountKeyType = {}));
+/**
+ * Defines values for PackageState.
+ * Possible values include: 'pending', 'active', 'unmapped'
+ * @readonly
+ * @enum {string}
+ */
+var PackageState;
+(function (PackageState) {
+    PackageState["Pending"] = "pending";
+    PackageState["Active"] = "active";
+    PackageState["Unmapped"] = "unmapped";
+})(PackageState = exports.PackageState || (exports.PackageState = {}));
+/**
+ * Defines values for NameAvailabilityReason.
+ * Possible values include: 'Invalid', 'AlreadyExists'
+ * @readonly
+ * @enum {string}
+ */
+var NameAvailabilityReason;
+(function (NameAvailabilityReason) {
+    NameAvailabilityReason["Invalid"] = "Invalid";
+    NameAvailabilityReason["AlreadyExists"] = "AlreadyExists";
+})(NameAvailabilityReason = exports.NameAvailabilityReason || (exports.NameAvailabilityReason = {}));
 //# sourceMappingURL=index.js.map

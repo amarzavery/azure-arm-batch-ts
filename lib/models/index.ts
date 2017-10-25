@@ -69,15 +69,15 @@ export interface BatchAccountCreateParameters {
    */
   autoStorage?: AutoStorageBaseProperties;
   /**
-   * @member {string} [poolAllocationMode] The allocation mode to use for
-   * creating pools in the Batch account. The pool allocation mode also affects
-   * how clients may authenticate to the Batch Service API. If the mode is
-   * BatchService, clients may authenticate using access keys or Azure Active
-   * Directory. If the mode is UserSubscription, clients must use Azure Active
-   * Directory. The default is BatchService. Possible values include:
+   * @member {PoolAllocationMode} [poolAllocationMode] The allocation mode to
+   * use for creating pools in the Batch account. The pool allocation mode also
+   * affects how clients may authenticate to the Batch Service API. If the mode
+   * is BatchService, clients may authenticate using access keys or Azure
+   * Active Directory. If the mode is UserSubscription, clients must use Azure
+   * Active Directory. The default is BatchService. Possible values include:
    * 'BatchService', 'UserSubscription'
    */
-  poolAllocationMode?: string;
+  poolAllocationMode?: PoolAllocationMode;
   /**
    * @member {KeyVaultReference} [keyVaultReference] A reference to the Azure
    * key vault associated with the Batch account.
@@ -146,17 +146,17 @@ export interface BatchAccount extends Resource {
    */
   readonly accountEndpoint?: string;
   /**
-   * @member {string} [provisioningState] The provisioned state of the
-   * resource. Possible values include: 'Invalid', 'Creating', 'Deleting',
+   * @member {ProvisioningState} [provisioningState] The provisioned state of
+   * the resource. Possible values include: 'Invalid', 'Creating', 'Deleting',
    * 'Succeeded', 'Failed', 'Cancelled'
    */
-  readonly provisioningState?: string;
+  readonly provisioningState?: ProvisioningState;
   /**
-   * @member {string} [poolAllocationMode] The allocation mode to use for
-   * creating pools in the Batch account. Possible values include:
+   * @member {PoolAllocationMode} [poolAllocationMode] The allocation mode to
+   * use for creating pools in the Batch account. Possible values include:
    * 'BatchService', 'UserSubscription'
    */
-  readonly poolAllocationMode?: string;
+  readonly poolAllocationMode?: PoolAllocationMode;
   /**
    * @member {KeyVaultReference} [keyVaultReference] A reference to the Azure
    * key vault associated with the Batch account.
@@ -215,10 +215,10 @@ export interface BatchAccountUpdateParameters {
  */
 export interface BatchAccountRegenerateKeyParameters {
   /**
-   * @member {string} keyName The type of account key to regenerate. Possible
-   * values include: 'Primary', 'Secondary'
+   * @member {AccountKeyType} keyName The type of account key to regenerate.
+   * Possible values include: 'Primary', 'Secondary'
    */
-  keyName: string;
+  keyName: AccountKeyType;
 }
 
 /**
@@ -291,10 +291,10 @@ export interface ApplicationPackage {
    */
   readonly version?: string;
   /**
-   * @member {string} [state] The current state of the application package.
-   * Possible values include: 'pending', 'active', 'unmapped'
+   * @member {PackageState} [state] The current state of the application
+   * package. Possible values include: 'pending', 'active', 'unmapped'
    */
-  readonly state?: string;
+  readonly state?: PackageState;
   /**
    * @member {string} [format] The format of the application package, if the
    * package is active.
@@ -469,11 +469,12 @@ export interface CheckNameAvailabilityResult {
    */
   readonly nameAvailable?: boolean;
   /**
-   * @member {string} [reason] Gets the reason that a Batch account name could
-   * not be used. The Reason element is only returned if NameAvailable is
-   * false. Possible values include: 'Invalid', 'AlreadyExists'
+   * @member {NameAvailabilityReason} [reason] Gets the reason that a Batch
+   * account name could not be used. The Reason element is only returned if
+   * NameAvailable is false. Possible values include: 'Invalid',
+   * 'AlreadyExists'
    */
-  readonly reason?: string;
+  readonly reason?: NameAvailabilityReason;
   /**
    * @member {string} [message] Gets an error message explaining the Reason
    * value in more detail.
@@ -553,4 +554,65 @@ export interface OperationListResult extends Array<Operation> {
    * @member {string} [nextLink]
    */
   nextLink?: string;
+}
+
+/**
+ * Defines values for PoolAllocationMode.
+ * Possible values include: 'BatchService', 'UserSubscription'
+ * @readonly
+ * @enum {string}
+ */
+export enum PoolAllocationMode {
+  BatchService = 'BatchService',
+  UserSubscription = 'UserSubscription',
+}
+
+/**
+ * Defines values for ProvisioningState.
+ * Possible values include: 'Invalid', 'Creating', 'Deleting', 'Succeeded',
+ * 'Failed', 'Cancelled'
+ * @readonly
+ * @enum {string}
+ */
+export enum ProvisioningState {
+  Invalid = 'Invalid',
+  Creating = 'Creating',
+  Deleting = 'Deleting',
+  Succeeded = 'Succeeded',
+  Failed = 'Failed',
+  Cancelled = 'Cancelled',
+}
+
+/**
+ * Defines values for AccountKeyType.
+ * Possible values include: 'Primary', 'Secondary'
+ * @readonly
+ * @enum {string}
+ */
+export enum AccountKeyType {
+  Primary = 'Primary',
+  Secondary = 'Secondary',
+}
+
+/**
+ * Defines values for PackageState.
+ * Possible values include: 'pending', 'active', 'unmapped'
+ * @readonly
+ * @enum {string}
+ */
+export enum PackageState {
+  Pending = 'pending',
+  Active = 'active',
+  Unmapped = 'unmapped',
+}
+
+/**
+ * Defines values for NameAvailabilityReason.
+ * Possible values include: 'Invalid', 'AlreadyExists'
+ * @readonly
+ * @enum {string}
+ */
+export enum NameAvailabilityReason {
+  Invalid = 'Invalid',
+  AlreadyExists = 'AlreadyExists',
 }
